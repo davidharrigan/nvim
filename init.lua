@@ -1,19 +1,16 @@
+-- :help nvim-tree-netrw
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Enable / disable debug mode
+local logger = require('core.log')
+logger.enable_debug()
+
 vim.g.mapleader = ' '
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+require('core').setup()
+require('editor').setup()
 
-local lazy = require("lazy")
-lazy.setup("plugins")
+-- Load plugins
+require('core.plugins').setup()
 
-require('config')
