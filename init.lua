@@ -10,6 +10,7 @@ vim.g.mapleader = ' '
 
 require('core').setup()
 require('editor').setup()
+require('config')
 
 -- Load plugins
 require('core.plugins').setup()
