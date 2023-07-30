@@ -20,12 +20,15 @@ M.plugins = {
         'williamboman/mason-lspconfig.nvim',
         tag = 'v1.12.0',
       },
+      'folke/neodev.nvim',
     },
   },
 }
 
 M.setup = function()
   require("mason").setup()
+  require('neodev').setup()
+
   require("mason-lspconfig").setup({ensure_installed=servers})
 
   require("mason-lspconfig").setup_handlers {
