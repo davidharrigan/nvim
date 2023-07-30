@@ -6,8 +6,7 @@ vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
 
 plugins.add({
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    dependencies = {'nvim-lua/plenary.nvim'}
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.2',
+  dependencies = { 'nvim-lua/plenary.nvim' },
 })
-
