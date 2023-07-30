@@ -3,4 +3,5 @@ return require('core.package').extend({
   require('editor.file-explorer'),
   require('editor.file-browser'),
   require('editor.languages'),
+  require('editor.session'),
 })

@@ -1,4 +1,5 @@
 {
+  "auto-session": { "branch": "main", "commit": "8b43922b893790a7f79951d4616369128758d215" },
   "catppuccin": { "branch": "main", "commit": "d603a47478e71795d8b7e7db0b325cdaa561208e" },
   "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "e86a4c84ff35240639643ffed56ee1c4d55f538e" },
