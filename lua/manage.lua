@@ -1,5 +1,8 @@
 local M = {}
 
+-- load config
+require('config')
+
 -- packages
 local packages = require('core.package').extend({
   require('core'),
@@ -26,9 +29,6 @@ M.init = function()
 end
 
 M.load = function()
-  -- load config
-  require('config')
-
   packages.setup()
   packages.keymaps()
   packages.autocmds()

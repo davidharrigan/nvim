@@ -3,7 +3,6 @@
 --
 -- see default configuration here: https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
 -- recipies: https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipies
-
 local M = {}
 
 M.plugins = {
@@ -29,15 +28,6 @@ M.setup = function()
     window = {
       mappings = {
         ['<space>'] = 'none',
-        ['e'] = function()
-          vim.api.nvim_exec('Neotree focus filesystem left', true)
-        end,
-        ['b'] = function()
-          vim.api.nvim_exec('Neotree focus buffers left', true)
-        end,
-        ['g'] = function()
-          vim.api.nvim_exec('Neotree focus git_status left', true)
-        end,
       },
     },
     default_component_configs = {
@@ -46,16 +36,6 @@ M.setup = function()
         expander_collapsed = '',
         expander_expanded = '',
         expander_highlight = 'NeoTreeExpander',
-      },
-    },
-    event_handlers = {
-      {
-        event = 'file_opened',
-        handler = function(file_path)
-          require('neo-tree.command').execute({
-            action = 'close',
-          })
-        end,
       },
     },
   })
