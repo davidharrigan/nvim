@@ -1,7 +1,6 @@
 return require('core.package').extend({
-  require('editor.colorscheme'),
-  require('editor.file-explorer'),
-  require('editor.file-browser'),
+  require('editor.components'),
   require('editor.languages'),
+  require('editor.colorscheme'),
   require('editor.session'),
 })
