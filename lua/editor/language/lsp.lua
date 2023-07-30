@@ -19,9 +19,13 @@ M.plugins = {
         'williamboman/mason-lspconfig.nvim',
         tag = 'v1.12.0',
       },
+      'hrsh7th/nvim-cmp',
       'folke/neodev.nvim',
     },
     config = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
       require('mason').setup()
       require('neodev').setup()
 
@@ -31,7 +35,9 @@ M.plugins = {
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function(server_name) -- default handler (optional)
-          require('lspconfig')[server_name].setup({})
+          require('lspconfig')[server_name].setup({
+            capabilities = capabilities,
+          })
         end,
       })
     end,
