@@ -20,14 +20,6 @@ M.extend = function(packages)
     end
   end
 
-  function self.keymaps()
-    for _, pkg in ipairs(packages) do
-      if pkg.keymaps then
-        pkg.keymaps()
-      end
-    end
-  end
-
   function self.autocmds()
     for _, pkg in ipairs(packages) do
       if pkg.autocmds then

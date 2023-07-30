@@ -1,19 +1,28 @@
 local M = {}
 
+local builtin = function(b, opts)
+  return function()
+    opts = opts or {}
+    return require('telescope.builtin')[b](opts)
+  end
+end
+
 M.plugins = {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    config = true, -- default setup
+
+    -- lazy load on
+    cmd = 'Telescope',
+    keys = {
+      { '<leader>ff', builtin('find_files'), {} },
+      { '<leader>fg', builtin('live_grep'),  {} },
+      { '<leader>fb', builtin('buffers'),    {} },
+      { '<leader>fh', builtin('help_tags'),  {} },
+    },
   },
 }
-
-M.keymaps = function()
-  local builtin = require('telescope.builtin')
-  vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-  vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-  vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-  vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-end
 
 return M

@@ -30,7 +30,6 @@ end
 
 M.load = function()
   packages.setup()
-  packages.keymaps()
   packages.autocmds()
 end
 

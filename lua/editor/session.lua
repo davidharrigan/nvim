@@ -4,28 +4,35 @@ M.plugins = {
   {
     'folke/persistence.nvim',
     tag = 'v1.1.0',
+    opts = { options = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp' } },
+
+    -- lazy load on
     event = 'BufReadPre',
+    keys = {
+      {
+        '<leader>qs',
+        function()
+          require('persistence').load()
+        end,
+        { desc = 'Restore Session' },
+      },
+      {
+        '<leader>ql',
+        function()
+          require('persistence').load({ last = true })
+        end,
+        { desc = 'Restore Last Session' },
+      },
+      {
+        '<leader>qd',
+        function()
+          require('persistence').stop()
+        end,
+        { desc = "Don't Save Current Session" },
+      },
+    },
   },
 }
-
-M.setup = function()
-  require('persistence').setup({
-    -- https://neovim.io/doc/user/options.html#'sessionoptions'
-    options = { 'curdir', 'winsize', 'help', 'skiprtp' },
-  })
-end
-
-M.keymaps = function()
-  vim.keymap.set('n', '<leader>qs', function()
-    require('persistence').load()
-  end, { desc = 'Restore Session' })
-  vim.keymap.set('n', '<leader>ql', function()
-    require('persistence').load({ last = true })
-  end, { desc = 'Restore Last Session' })
-  vim.keymap.set('n', '<leader>qd', function()
-    require('persistence').stop()
-  end, { desc = "Don't Save Current Session" })
-end
 
 M.autocmds = function()
   vim.api.nvim_create_autocmd('VimEnter', {
