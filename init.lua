@@ -8,11 +8,5 @@ logger.enable_debug()
 
 vim.g.mapleader = ' '
 
-require('core').setup()
-require('editor').setup()
-require('config')
-require('manage')
 require('manage').init()
-
--- Load plugins
-require('core.plugins').setup()
+require('manage').load()

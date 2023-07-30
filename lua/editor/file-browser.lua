@@ -1,12 +1,19 @@
-local plugins = require('core.plugins')
+local M = {}
 
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
-vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
-vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
+M.plugins = {
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+}
 
-plugins.add({
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.2',
-  dependencies = { 'nvim-lua/plenary.nvim' },
-})
+M.keymaps = function()
+  local builtin = require('telescope.builtin')
+  vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+  vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+  vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+  vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+end
+
+return M
