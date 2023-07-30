@@ -12,7 +12,7 @@ M.plugins = {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       {
-        'williamboman/mason.nvim',
+         'williamboman/mason.nvim',
         tag = 'v1.6.1',
         build = ':MasonUpdate',
       },

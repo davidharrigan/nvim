@@ -12,7 +12,7 @@ M.plugins = {
 M.setup = function()
   require("persistence").setup ({
     -- https://neovim.io/doc/user/options.html#'sessionoptions'
-    options = { "curdir", "winsize" },
+    options = { "curdir", "winsize", "help","skiprtp" },
   })
 end
 
