@@ -15,7 +15,7 @@ M.plugins = {
     opts = {
       defaults = {
         layout_config = { height = 0.9, width = 0.95 },
-        layout_strategy = 'vertical',
+        layout_strategy = 'horizontal',
       },
     },
 
