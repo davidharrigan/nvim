@@ -15,5 +15,6 @@
         "/Users/david/.local/share/nvim/lazy/neo-tree.nvim/lua",
         "/Users/david/.config/nvim/lua",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }
