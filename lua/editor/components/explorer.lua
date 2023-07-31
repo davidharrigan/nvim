@@ -40,7 +40,14 @@ M.plugins = {
 
     -- lazy load on
     keys = {
-      { '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'toggle file explorer' } },
+      {
+        '<leader>fe',
+        function()
+          require('neo-tree.command').execute({ toggle = true })
+        end,
+        desc = 'Explorer',
+      },
+      { '<leader>e', '<leader>fe', desc = 'Explorer', remap = true },
     },
   },
 }

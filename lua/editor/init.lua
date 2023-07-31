@@ -4,4 +4,5 @@ return require('core.package').extend({
   require('editor.window'),
   require('editor.components'),
   require('editor.language'),
+  require('editor.ui'),
 })
