@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     {
       'hrsh7th/nvim-cmp',
@@ -47,5 +45,3 @@ M.plugins = {
     },
   },
 }
-
-return M

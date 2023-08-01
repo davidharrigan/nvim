@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'folke/trouble.nvim',
     cmd = { 'TroubleToggle', 'Trouble' },
@@ -41,5 +39,3 @@ M.plugins = {
     },
   },
 }
-
-return M

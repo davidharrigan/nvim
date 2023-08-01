@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
@@ -35,5 +33,3 @@ M.plugins = {
     },
   },
 }
-
-return M

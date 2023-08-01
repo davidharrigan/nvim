@@ -1,5 +1,3 @@
-local M = {}
-
 local builtin = function(b, opts)
   return function()
     opts = opts or {}
@@ -7,7 +5,7 @@ local builtin = function(b, opts)
   end
 end
 
-M.plugins = {
+return {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
@@ -29,7 +27,7 @@ M.plugins = {
       { '<leader>fr', builtin('oldfiles'), desc = 'Recent' },
 
       -- git
-      { '<leader>gc', builtin('git_commits'), desc = 'commits' },
+      { '<leader>gc', builtin('git_commits'), desc = 'commits!!' },
       { '<leader>gs', builtin('git_status'), desc = 'status' },
 
       -- search
@@ -91,5 +89,3 @@ M.plugins = {
     },
   },
 }
-
-return M

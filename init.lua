@@ -9,4 +9,3 @@ logger.enable_debug()
 vim.g.mapleader = ' '
 
 require('manage').init()
-require('manage').load()

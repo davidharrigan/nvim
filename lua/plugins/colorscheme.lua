@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'catppuccin/nvim',
     tag = 'v1.3.0',
@@ -44,5 +42,3 @@ M.plugins = {
     end,
   },
 }
-
-return M

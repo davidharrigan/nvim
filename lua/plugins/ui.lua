@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'rcarriga/nvim-notify',
     keys = {
@@ -65,7 +63,7 @@ M.plugins = {
       },
       presets = {
         bottom_search = true,
-        command_palette = false,
+        command_palette = true,
         long_message_to_split = true,
         inc_rename = true,
       },
@@ -122,5 +120,3 @@ M.plugins = {
   },
   { 'MunifTanjim/nui.nvim', lazy = true },
 }
-
-return M

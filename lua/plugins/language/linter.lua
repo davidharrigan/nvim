@@ -1,6 +1,6 @@
-local M = {}
+vim.api.nvim_command('command! Format lua vim.lsp.buf.format({ async = false })')
 
-M.plugins = {
+return {
   {
     'jay-babu/mason-null-ls.nvim',
     dependencies = {
@@ -37,9 +37,3 @@ M.plugins = {
     cmd = 'Format',
   },
 }
-
-M.setup = function()
-  vim.api.nvim_command('command! Format lua vim.lsp.buf.format({ async = false })')
-end
-
-return M

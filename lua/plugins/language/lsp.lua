@@ -1,11 +1,9 @@
-local M = {}
-
 local servers = {
   'lua_ls',
   'gopls',
 }
 
-M.plugins = {
+return {
   {
     'neovim/nvim-lspconfig',
     tag = 'v0.1.6',
@@ -18,6 +16,7 @@ M.plugins = {
       {
         'williamboman/mason-lspconfig.nvim',
         tag = 'v1.12.0',
+        build = ':MasonUpdate',
       },
       'hrsh7th/nvim-cmp',
       'folke/neodev.nvim',
@@ -46,5 +45,3 @@ M.plugins = {
     event = { 'BufReadPre', 'BufNewFile' },
   },
 }
-
-return M

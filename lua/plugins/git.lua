@@ -1,6 +1,4 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'lewis6991/gitsigns.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -11,7 +9,7 @@ M.plugins = {
         change = { text = '▎' },
         delete = { text = '_ ' },
         topdelete = { text = '‾ ' },
-        untracked = { text = '┆ ' },
+        untracked = { text = '▎' },
       },
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {
@@ -44,5 +42,3 @@ M.plugins = {
     },
   },
 }
-
-return M

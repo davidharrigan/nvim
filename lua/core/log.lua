@@ -8,7 +8,7 @@ end
 
 function M.debug(...)
   if M._debug_enabled then
-    for i, v in ipairs({ ... }) do
+    for _, v in ipairs({ ... }) do
       if type(v) == 'table' then
         v = vim.inspect(v)
       end

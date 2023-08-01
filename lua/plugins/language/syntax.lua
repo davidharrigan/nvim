@@ -1,5 +1,3 @@
-local M = {}
-
 local languages = {
   'bash',
   'go',
@@ -22,7 +20,7 @@ local languages = {
   'yaml',
 }
 
-M.plugins = {
+return {
   -- Treesitter is a new parser generator tool that we can
   -- use in Neovim to power faster and more accurate
   -- syntax highlighting.
@@ -36,7 +34,7 @@ M.plugins = {
     cmd = { 'TSUpdateSync' },
     keys = {
       { '<c-space>', desc = 'Increment selection' },
-      { '<bs>',      desc = 'Decrement selection', mode = 'x' },
+      { '<bs>', desc = 'Decrement selection', mode = 'x' },
     },
 
     -- setup
@@ -102,5 +100,3 @@ M.plugins = {
     end,
   },
 }
-
-return M

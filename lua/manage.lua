@@ -4,10 +4,7 @@ local M = {}
 require('config')
 
 -- packages
-local packages = require('core.package').extend({
-  require('core'),
-  require('editor'),
-})
+require('core')
 
 M.init = function()
   -- If lazy.nvim is not installed, install it from GitHub.
@@ -25,12 +22,7 @@ M.init = function()
   vim.opt.rtp:prepend(lazypath)
 
   local lazy = require('lazy')
-  lazy.setup(packages.plugins)
-end
-
-M.load = function()
-  packages.setup()
-  packages.autocmds()
+  lazy.setup('plugins')
 end
 
 return M

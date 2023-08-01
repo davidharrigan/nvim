@@ -3,9 +3,16 @@
 --
 -- see default configuration here: https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
 -- recipies: https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipies
-local M = {}
+vim.api.nvim_create_autocmd('TermClose', {
+  pattern = '*lazygit',
+  callback = function()
+    if package.loaded['neo-tree.sources.git_status'] then
+      require('neo-tree.sources.git_status').refresh()
+    end
+  end,
+})
 
-M.plugins = {
+return {
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -51,16 +58,3 @@ M.plugins = {
     },
   },
 }
-
-M.autocmd = function()
-  vim.api.nvim_create_autocmd('TermClose', {
-    pattern = '*lazygit',
-    callback = function()
-      if package.loaded['neo-tree.sources.git_status'] then
-        require('neo-tree.sources.git_status').refresh()
-      end
-    end,
-  })
-end
-
-return M

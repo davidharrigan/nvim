@@ -1,11 +1,7 @@
-local M = {}
-
-M.plugins = {
+return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = true, -- default setup
   },
 }
-
-return M
