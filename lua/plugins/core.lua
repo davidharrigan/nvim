@@ -14,12 +14,4 @@ return {
       stages = "static",
     },
   },
-
-  -- colorscheme
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin-macchiato",
-    },
-  },
 }

@@ -9,9 +9,18 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   group = augroup("tiltfile"),
   pattern = {
     "Tiltfile*",
-    "*.tilt"
+    "*.tilt",
   },
   callback = function()
     vim.opt_local.filetype = "tiltfile"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("tab4"),
+  pattern = { "tiltfile" },
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
   end,
 })

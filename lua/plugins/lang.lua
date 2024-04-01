@@ -18,6 +18,7 @@ return {
         "go",
         "gomod",
         "starlark",
+        "golang",
       })
       return opts
     end,
