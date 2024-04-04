@@ -137,4 +137,23 @@ return {
       end,
     },
   },
+
+  -- Svelte
+  {
+
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "svelte-language-server",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "svelte",
+      },
+    },
+  },
 }
