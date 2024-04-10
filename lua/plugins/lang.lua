@@ -137,6 +137,20 @@ return {
       end,
     },
   },
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = {
+        ["neotest-go"] = {
+          experimental = {
+            test_table = true,
+          },
+          args = { "-tags=integration" },
+          recursive_run = true,
+        },
+      },
+    },
+  },
 
   -- Svelte
   {
