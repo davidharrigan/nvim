@@ -1,6 +1,18 @@
 local lspconfig = require("lspconfig")
 
 return {
+  --
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      -- options for vim.diagnostic.config()
+      ---@type vim.diagnostic.Opts
+      diagnostics = {
+        virtual_text = false,
+      },
+    },
+  },
   -- Tiltfile
   {
     "neovim/nvim-lspconfig",
