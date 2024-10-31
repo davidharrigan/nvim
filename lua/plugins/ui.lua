@@ -1,4 +1,11 @@
 return {
+  { "Shatur/neovim-ayu" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "ayu",
+    },
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
