@@ -1,5 +1,21 @@
 return {
-  { "Shatur/neovim-ayu" },
+  {
+    "Shatur/neovim-ayu",
+    config = function()
+      require("ayu").setup({
+        overrides = function()
+          if vim.o.background == "dark" then
+            return {
+              LspInlayHint = { fg = "#5e656d", bg = "#161c26" },
+              Boolean = { fg = "#DFBFFF" },
+            }
+          else
+            return {}
+          end
+        end,
+      })
+    end,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
