@@ -116,6 +116,7 @@ return {
                 unusedwrite = true,
                 useany = true,
               },
+              buildFlags = { "-tags=integration" },
               usePlaceholders = false,
               completeUnimported = true,
               staticcheck = true,
@@ -149,20 +150,16 @@ return {
       end,
     },
   },
-  -- {
-  --   "nvim-neotest/neotest",
-  --   opts = {
-  --     adapters = {
-  --       ["neotest-go"] = {
-  --         experimental = {
-  --           test_table = true,
-  --         },
-  --         args = { "-tags=integration" },
-  --         recursive_run = true,
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = {
+        ["neotest-golang"] = {
+          go_test_args = { "-tags=integration" },
+        },
+      },
+    },
+  },
 
   -- Svelte
   {
