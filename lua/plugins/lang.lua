@@ -14,16 +14,16 @@ return {
     },
   },
   -- Tiltfile
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        tilt_ls = {},
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   ---@class PluginLspOpts
+  --   opts = {
+  --     ---@type lspconfig.options
+  --     servers = {
+  --       tilt_ls = {},
+  --     },
+  --   },
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -81,7 +81,22 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        golangci_lint_ls = {},
+        golangci_lint_ls = {
+          cmd = { "golangci-lint-langserver" },
+          root_dir = require("lspconfig").util.root_pattern(".git", "go.mod"),
+          init_options = {
+            -- command = { "golangci-lint", "run", "--out-format", "json" },
+            command = (function()
+              local root = require("lspconfig").util.root_pattern(".git", "go.mod")(vim.fn.getcwd())
+              local config_exists = vim.loop.fs_stat(root .. "/.golangci-lint.yaml") ~= nil
+              if config_exists ~= "" then
+                return { "golangci-lint", "run", "-c", ".golangci-lint.yaml", "--out-format", "json" }
+              else
+                return { "golangci-lint", "run", "--enable-all", "--disable", "depguard", "--out-format", "json" }
+              end
+            end)(),
+          },
+        },
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12

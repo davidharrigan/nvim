@@ -6,9 +6,10 @@ return {
     end,
   },
   {
+    "davidharrigan/neovim-ayu",
     name = "ayu",
-    dir = "~/src/neovim-ayu",
-    dev = true,
+    -- dir = "~/src/neovim-ayu",
+    -- dev = true,
     config = function()
       require("ayu").setup({
         mirage = false,
