@@ -88,11 +88,13 @@ return {
             -- command = { "golangci-lint", "run", "--out-format", "json" },
             command = (function()
               local root = require("lspconfig").util.root_pattern(".git", "go.mod")(vim.fn.getcwd())
-              local config_exists = vim.loop.fs_stat(root .. "/.golangci-lint.yaml") ~= nil
-              if config_exists ~= "" then
-                return { "golangci-lint", "run", "-c", ".golangci-lint.yaml", "--out-format", "json" }
-              else
-                return { "golangci-lint", "run", "--enable-all", "--disable", "depguard", "--out-format", "json" }
+              if root ~= nil then
+                local config_exists = vim.loop.fs_stat(root .. "/.golangci-lint.yaml") ~= nil
+                if config_exists ~= "" then
+                  return { "golangci-lint", "run", "-c", ".golangci-lint.yaml", "--out-format", "json" }
+                else
+                  return { "golangci-lint", "run", "--enable-all", "--disable", "depguard", "--out-format", "json" }
+                end
               end
             end)(),
           },
@@ -117,11 +119,11 @@ return {
               },
               hints = {
                 assignVariableTypes = false,
-                compositeLiteralFields = true,
+                compositeLiteralFields = false,
                 compositeLiteralTypes = true,
                 constantValues = true,
                 functionTypeParameters = true,
-                parameterNames = true,
+                parameterNames = false,
                 rangeVariableTypes = true,
               },
               analyses = {
@@ -191,6 +193,25 @@ return {
     opts = {
       ensure_installed = {
         "svelte",
+      },
+    },
+  },
+
+  -- Python
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = { enabled = false },
+                pyflakes = { enabled = false },
+              },
+            },
+          },
+        },
       },
     },
   },
